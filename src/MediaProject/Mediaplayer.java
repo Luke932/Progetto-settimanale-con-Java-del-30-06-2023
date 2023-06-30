@@ -88,12 +88,17 @@ public class Mediaplayer {
 	}
 
 	public static void playElementMedia(ElementMedia element) {
-		if (element instanceof Player) {
-			Player vlc = (Player) element;
-			vlc.play();
+		if (element instanceof Video) {
+			Video video = (Video) element;
+			video.aumentaLuminosita();
+			video.alzaVolume();
+			video.play();
 		} else if (element instanceof Image) {
-			Image jpg = (Image) element;
-			jpg.show();
+			Image image = (Image) element;
+			image.aumentaLuminosita();
+			image.play();
+		} else {
+			System.out.println("Elemento multimediale non supportato.");
 		}
 	}
 }
